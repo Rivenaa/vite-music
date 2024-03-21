@@ -1,6 +1,10 @@
 <script setup>
 import Header from './views/Header/index.vue'
 import Tab from './views/Tab/index.vue'
+import pinyin from 'pinyin'
+console.log(pinyin)
+const p = pinyin('中文字符串')
+console.log(p)
 </script>
 
 <template>

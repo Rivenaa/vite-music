@@ -4,7 +4,7 @@
  */
 
 import axios from 'axios'
-
+import pinyin from 'pinyin'
 import { Base64 } from 'js-base64'
 // 获取签名方法
 import getSecuritySign from './sign'
@@ -265,8 +265,7 @@ function registerSingerList(app) {
 
         singerList.forEach(item => {
           // 把歌手名转成拼音
-
-          const p = pinyin.default(item.singer_name)
+          const p = pinyin(item.singer_name)
           if (!p || !p.length) {
             return
           }
