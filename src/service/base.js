@@ -17,7 +17,7 @@ export function get(url, params) {
         return data.result
       }
     })
-    .catch(e => {
-      console.log(e)
+    .catch(err => {
+      console.log(err)
     })
 }

@@ -7,8 +7,14 @@ const options = defineProps({
   click: {
     type: Boolean,
     default: true
+  },
+  probeType: {
+    type: Number,
+    default: 0
   }
 })
+
+const emit = defineEmits(['scroll'])
 
 const rootRef = ref(null)
 const scroll = ref(null)
@@ -20,6 +26,12 @@ onMounted(() => {
     observeDOM: true,
     ...options
   })
+
+  if (options.probeType > 0) {
+    scroll.value.on('scroll', pos => {
+      emit('scroll', pos)
+    })
+  }
 })
 
 onUnmounted(() => {

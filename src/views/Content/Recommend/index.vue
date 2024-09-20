@@ -6,29 +6,21 @@ import Scroll from '@/components/Scroll/index.vue'
 
 const sliders = ref([])
 const albums = ref([])
-const loadingText = ref('正在载入...')
 
 const loading = computed(() => {
   return !sliders.value.length && !albums.value.length
 })
 
 onMounted(async () => {
-  try {
-    const result = await getRecommend()
-    console.log(result)
-    sliders.value = result.sliders
-    albums.value = result.albums
-  } catch (error) {
-    console.error('Error fetching recommendations:', error)
-  }
+  const result = await getRecommend()
+  console.log(result)
+  sliders.value = result.sliders
+  albums.value = result.albums
 })
 </script>
 
 <template>
-  <div
-    class="fixed w-full top-[88px] bottom-0"
-    v-loading:[loadingText]="loading"
-  >
+  <div class="fixed w-full top-[88px] bottom-0" v-loading="loading">
     <Scroll class="h-full overflow-hidden">
       <div>
         <!-- slider -->

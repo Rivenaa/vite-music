@@ -13,7 +13,6 @@ const loadingDirective = {
       const instance = app.mount(document.createElement('div'))
       loadingInstances.set(el, instance)
 
-      // 在这里添加代码
       const title = binding.arg
       if (typeof title !== 'undefined') {
         instance.setTitle(title)

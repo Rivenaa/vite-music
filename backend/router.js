@@ -4,7 +4,7 @@
  */
 
 import axios from 'axios'
-import pinyin from 'pinyin'
+import { pinyin } from 'pinyin'
 import { Base64 } from 'js-base64'
 // 获取签名方法
 import getSecuritySign from './sign'
